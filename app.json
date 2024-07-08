@@ -18,10 +18,21 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.kaleabhaliu.luxuryriderapprider",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBVdYR5KOl5GHK9p-DJ1DLx5bJgc8D3rLg"
+        }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e4753b88-ebfc-465b-ad81-e7c4e3ebd625"
+      }
     }
   }
 }

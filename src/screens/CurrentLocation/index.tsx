@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
 
 import MapButton from '../../components/MapButton';
@@ -65,6 +65,7 @@ const Map: React.FC = () => {
           latitudeDelta: 0.0143,
           longitudeDelta: 0.0134,
         }}
+        provider={PROVIDER_GOOGLE}
         loadingEnabled
         showsCompass={false}
         showsPointsOfInterest={false}
