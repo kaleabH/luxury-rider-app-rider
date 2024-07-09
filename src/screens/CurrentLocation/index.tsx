@@ -3,6 +3,7 @@ import { Alert } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
 
+
 import MapButton from '../../components/MapButton';
 
 import iconHome from '../../assets/home.png';
@@ -66,6 +67,7 @@ const Map: React.FC = () => {
           longitudeDelta: 0.0134,
         }}
         provider={PROVIDER_GOOGLE}
+        apiKey= {GOOGLE_MAP_API_KEY}
         loadingEnabled
         showsCompass={false}
         showsPointsOfInterest={false}
