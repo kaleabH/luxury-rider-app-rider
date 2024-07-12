@@ -13,6 +13,7 @@ import SelectDestination from './screens/SelectDestination';
 import Request from './screens/Request';
 import YourRide from './screens/YourRide';
 import DrawerNavigator from './navigation/DrawerNavigator';
+import CardDescription from './screens/CardDescription';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,7 @@ const Index: React.FC = () => {
             component={SelectDestination}
           />
           <Stack.Screen name="Request" component={Request} />
+          <Stack.Screen name="Description" component={CardDescription} />
           <Stack.Screen name="YourRide" component={YourRide} />
         </Stack.Navigator>
       </NavigationContainer>

@@ -196,7 +196,7 @@ const Home:React.FC<TabBarProps<TabBarParamsList,'Home'>> = () => {
   
                 
               </ScrollView>
-              <StatusBar style ="light" backgroundColor = "#2058c0" translucent ={true} />
+              {/* <StatusBar style ="light" backgroundColor = "#2058c0" translucent ={true} /> */}
           </View>
       )
   }
