@@ -67,7 +67,7 @@ const Map: React.FC = () => {
           longitudeDelta: 0.0134,
         }}
         provider={PROVIDER_GOOGLE}
-        apiKey= {GOOGLE_MAP_API_KEY}
+        // apiKey= {GOOGLE_MAP_API_KEY}
         loadingEnabled
         showsCompass={false}
         showsPointsOfInterest={false}

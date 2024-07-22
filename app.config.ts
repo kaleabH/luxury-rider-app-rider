@@ -38,3 +38,4 @@ expo: {
     }
   }
 }
+console.log("the api key",process.env.GOOGLE_MAP_API_KEY)
