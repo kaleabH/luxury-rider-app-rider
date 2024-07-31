@@ -81,15 +81,6 @@ const Home:React.FC<TabBarProps<TabBarParamsList,'Home'>> = () => {
   
       return (
           <View style ={styles.container}>
-              {/* <View style ={styles.header}>
-                  <View style ={styles.icon1}>
-                      <Icon type = "material-community"
-                            name ="menu"
-                            color = {colors.white}
-                            size = {40}
-                      />
-                  </View>
-              </View> */}
               <ScrollView bounces ={false}>
                   <View style ={styles.home}>
                       <Text style = {styles.text1}>Destress your commute</Text>

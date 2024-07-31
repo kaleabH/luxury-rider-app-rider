@@ -1,6 +1,20 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+    // "typeRoots": ["./node_modules/@types", "./typings"]
+  },
+  "include": [
+    "src/**/*",      // Include all TypeScript files in the src directory
+    "env.d.ts"       // Include the env.d.ts file in the root directory
+  ]
 }

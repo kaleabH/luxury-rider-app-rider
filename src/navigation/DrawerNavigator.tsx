@@ -11,6 +11,7 @@ import { DrawerContent } from "../components/DrawerContent";
 import { ReactNode, useState } from "react";
 import Search from "../components/Search"
 import EIcon from 'react-native-vector-icons/Entypo';
+import BottomNav from "../newComponents/BottomNav";
 interface DrawerProps /*extends Props<DrawerParamsList, "DrawerContent">*/{
 }
 
@@ -61,7 +62,9 @@ const DrawerNavigator: React.FC<DrawerProps> = (props)=> {
          }>
             <Drawer.Screen
             name="TabBarNavigator"
-            component={TabBarNavigator}
+            // component={TabBarNavigator}
+            component={BottomNav}
+
             options={{
                 title:"Home"
             }}
