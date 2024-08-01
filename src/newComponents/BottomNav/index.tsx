@@ -5,7 +5,7 @@ import { BottomNavigation, Surface } from 'react-native-paper';
 import { Ionicons } from 'react-native-vector-icons';
 
 
-import HomeScreen from '../../screens/Home'; 
+import HomeScreen from '../../screens/HomeScreen'; 
 import MatchesScreen from '../../screens/Matches';
 import NewsScreen from '../../screens/News'; 
 import ShopScreen from '../../screens/Shop'; 

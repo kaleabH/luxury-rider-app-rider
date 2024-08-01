@@ -8,7 +8,7 @@ import CodeInput from '../../components/CodeInput';
 import envelopeImg from '../../assets/envelope.png';
 import * as S from './styles';
 
-const Verification: React.FC = () => {
+const VerificationScreen: React.FC = () => {
   const navigation = useNavigation();
   const codeRef2 = useRef(null);
   const codeRef3 = useRef(null);
@@ -41,8 +41,8 @@ const Verification: React.FC = () => {
           <CodeInput onChangeText={() => focusNext(codeRef4)} ref={codeRef3} />
           <CodeInput
             returnKeyType="send"
-            onChangeText={() => navigation.navigate('DrawerNavigator')}
-            onSubmitEditing={() => navigation.navigate('DrawerNavigator')}
+            onChangeText={() => navigation.navigate('UserDetails')}
+            onSubmitEditing={() => navigation.navigate('UserDetails')}
             ref={codeRef4}
           />
         </S.CodeContainer>
@@ -51,4 +51,4 @@ const Verification: React.FC = () => {
   );
 };
 
-export default Verification;
+export default VerificationScreen;

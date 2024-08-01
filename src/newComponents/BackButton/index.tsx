@@ -17,7 +17,8 @@ const BackButton: React.FC = () => (
 const styles = StyleSheet.create({
   buttonContainer: {
     backgroundColor: 'white', 
-    borderRadius: 10, 
+    borderRadius: 30, 
+    marginBottom:10,
     padding: 8, 
     alignItems: 'center', 
     justifyContent: 'center', 
@@ -25,6 +26,9 @@ const styles = StyleSheet.create({
     width: 48, 
     height: 48, 
     shadowRadius:10,
+    // position: 'absolute',
+    // bottom: 20,
+    // right: 20,
     shadowColor:"#000"
   },
   iconButton: {

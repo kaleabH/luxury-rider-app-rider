@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal:20,
     marginHorizontal: 5,
   },
   title: {

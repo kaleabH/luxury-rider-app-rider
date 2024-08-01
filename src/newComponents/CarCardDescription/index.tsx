@@ -66,6 +66,7 @@ const CarCardDescription: React.FC<CarCardDescriptionProps> = ({ car, driver, sp
             </View>
 
                 {/* specification */}
+                
           <Text style={styles.sectionTitle}>Specifications</Text>
           <View style={styles.specificationsContainer}>
           <View style={styles.iconContainer}>
@@ -98,6 +99,7 @@ const CarCardDescription: React.FC<CarCardDescriptionProps> = ({ car, driver, sp
             <Paragraph>{car.category}</Paragraph>
           </View>
           </View>
+        
         </Card.Content>
           <View style={styles.button}>
           <CustomButton title="Book Now" onPress={handlePress} />
@@ -160,9 +162,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconContainer: {
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    marginVertical:10,
+    borderRadius: 10,
+    elevation: 5, // for Android shadow
+    shadowColor: '#000', // for iOS shadow
+    shadowOffset: { width: 0, height: 2 }, // for iOS shadow
+    shadowOpacity: 0.25, // for iOS shadow
+    shadowRadius: 3.84, // for iOS shadow
+
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 5,
+    // marginHorizontal: 5,
+    
   },
   button:{
   marginTop:30,
