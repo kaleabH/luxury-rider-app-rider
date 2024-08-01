@@ -12,6 +12,7 @@ export type TabBarParamsList = {
 export type DrawerParamsList ={
  TabBarNavigator: NavigatorScreenParams<TabBarParamsList>;
  DrawerContent: NavigatorScreenParams<TabBarParamsList>;
+//  BottomNav: undefined;
 };
 
 export type StackParamsList = {

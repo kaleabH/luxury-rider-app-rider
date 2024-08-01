@@ -46,3 +46,9 @@ export const CreditCardText = styled.Text<ThemeProps>`
   font-size: 18px;
   color: ${({ theme }) => theme.color.primary};
 `;
+export const FlatlistContainer = styled.View`
+flex: 1;
+background-color: #fff;
+justify-content: center;
+align-items: center;
+`;

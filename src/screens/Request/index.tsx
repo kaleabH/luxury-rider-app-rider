@@ -16,6 +16,8 @@ import theme from '../../theme';
 
 import * as S from './styles';
 import { TextInput } from 'react-native-paper';
+import CardComponent from '../../components/CardComponent';
+import { FlatList } from 'react-native';
 
 const Request: React.FC = () => {
   const [selected, setSelected] = useState('economy');
@@ -23,6 +25,17 @@ const Request: React.FC = () => {
   const [text, setText] = React.useState(" ");
 
   const navigation = useNavigation();
+  
+  const carData = [
+    { id: '1', name: 'VIP', image: require('../../assets/cars/car5.jpg') },
+    { id: '2', name: 'VVIP', image: require('../../assets/cars/car6.jpg') },
+    { id: '3', name: 'Corporate', image: require('../../assets/cars/car4.jpg') },
+    // Add more car data as needed
+  ];
+
+  const renderItem = ({ item }: any) => (
+    <CardComponent name={item.name} image={item.image} />
+  );
   
   return (
     <S.Container>
@@ -90,7 +103,7 @@ const Request: React.FC = () => {
             height: 300,
           }}
         />
-        <S.Options>
+        {/* <S.Options>
           <CarButton
             text="VIP"
             onPress={() => setSelected('economy')}
@@ -106,7 +119,17 @@ const Request: React.FC = () => {
             onPress={() => setSelected('family')}
             active={selected === 'family'}
           />
-        </S.Options>
+        </S.Options> */}
+        <S.FlatlistContainer>
+          <FlatList
+            data={carData}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+            horizontal
+            contentContainerStyle={{ alignItems: 'center' }}
+          />
+       </S.FlatlistContainer>
+       
         <S.CreditCardInfo>
           <S.CreditCardImage source={visa} />
           <S.CreditCardText>•••• 0990</S.CreditCardText>
