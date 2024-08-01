@@ -18,7 +18,7 @@ interface ILatLng {
   latitude: number;
   longitude: number;
 }
-
+// const apiKey = process.env.GOOGLE_MAP_API_KEY
 const Map: React.FC = () => {
   const [latLng, setLatLng] = useState<ILatLng>({
     latitude: -19.916483,
@@ -67,7 +67,7 @@ const Map: React.FC = () => {
           longitudeDelta: 0.0134,
         }}
         provider={PROVIDER_GOOGLE}
-        apiKey= {GOOGLE_MAP_API_KEY}
+        // apiKey= {GOOGLE_MAP_API_KEY}
         loadingEnabled
         showsCompass={false}
         showsPointsOfInterest={false}

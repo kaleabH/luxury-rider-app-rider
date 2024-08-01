@@ -1,16 +1,16 @@
 import 'dotenv/config';
-// import {GOOGLE_MAP_API_KEY} from '@env';
+import {GOOGLE_MAP_API_KEY} from '@env';
 export default {
 expo: {
-    name: "luxury-rider-app-rider",
-    slug: "luxury-rider-app-rider",
+    name: "luxury-rideUser",
+    slug: "luxury-rideUser",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
     splash: {
-      image: "./assets/splash.png",
-      resizeMode: "contain",
+      image: "./assets/splash10.jpg",
+      resizeMode: "cover",
       backgroundColor: "#ffffff"
     },
     ios: {
