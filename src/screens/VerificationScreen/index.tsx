@@ -41,8 +41,8 @@ const VerificationScreen: React.FC = () => {
           <CodeInput onChangeText={() => focusNext(codeRef4)} ref={codeRef3} />
           <CodeInput
             returnKeyType="send"
-            onChangeText={() => navigation.navigate('UserDetails')}
-            onSubmitEditing={() => navigation.navigate('UserDetails')}
+            onChangeText={() => navigation.navigate('DrawerNavigator')}
+            onSubmitEditing={() => navigation.navigate('DrawerNavigator')}
             ref={codeRef4}
           />
         </S.CodeContainer>

@@ -14,7 +14,8 @@ import Request from './screens/Request';
 import YourRide from './screens/YourRide';
 import DrawerNavigator from './navigation/DrawerNavigator';
 import CardDescription from './screens/CardDescription';
-import BottomNav from './newComponents/BottomNav';
+// import BottomNav from './newComponents/BottomNav';
+import BottomNav from './components/BottomNav';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Home from './screens/HomeScreen';
 import { StatusBar } from 'react-native';
@@ -44,7 +45,7 @@ const Index: React.FC = () => {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
 
-        <ListingScreen />
+        {/* <ListingScreen /> */}
         {/* <SearchComponent /> */}
       {/* <CarDescription /> */}
       {/* <CarCard
@@ -71,11 +72,12 @@ const Index: React.FC = () => {
         seats={4}
         speed="100"
       /> */}
-      
+      {/* <LoadingScreen/> */}
       {/* <BottomNav /> */}
+      {/* <BottomNav/> */}
       
        
-        {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
       {/* <Stack.Screen name="Loading" component={LoadingScreen} /> */}
       {/* <Stack.Screen name="AuthScreen" component={AuthSreen} /> */}
       {/* <Stack.Screen name="Verification" component={VerificationScreen} /> */}
@@ -85,14 +87,17 @@ const Index: React.FC = () => {
 
       {/* <Stack.Screen name="CountrySelector" component={CountrySelectorScreen} /> */}
        
-          {/* <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="Verification" component={VerificationScreen} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+            <Stack.Screen name='DrawerNavigator'component={DrawerNavigator}/>
           <Stack.Screen name="AddCard" component={AddCard} />
           <Stack.Screen name="CurrentLocation" component={CurrentLocation} />
           <Stack.Screen name="SelectDestination"component={SelectDestination}/>
           <Stack.Screen name="Request" component={Request} />
           <Stack.Screen name="Description" component={CardDescription} />
-          <Stack.Screen name="YourRide" component={YourRide} /> */}
-        {/* </Stack.Navigator> */}
+          <Stack.Screen name="YourRide" component={YourRide} />
+        </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
     </SafeAreaProvider>
