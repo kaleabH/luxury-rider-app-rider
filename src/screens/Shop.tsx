@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, StatusBar } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { TabBarProps, TabBarParamsList } from '../../types'
 import { TextInput, Button, Avatar } from 'react-native-paper';
@@ -41,13 +41,14 @@ const Shop: React.FC<TabBarProps<TabBarParamsList, 'Shop'>> = () => {
   };
 
   return (
-    <ScrollView bounces ={false}>
+    <SafeAreaView  style={styles.mainContainer}>
+      <ScrollView contentContainerStyle={styles.scrollView} >
     <View style={styles.container}>
       <Avatar.Image
         size={100}
         source={require('../assets/avatar.png')} 
         style={styles.avatar}
-      />
+        />
       <Button mode="contained" style={{width:"50%", alignSelf:"center", marginBottom:10}} buttonColor='#B80028'  onPress={handleAvatarChange}>
         Change Avatar
       </Button>
@@ -62,41 +63,52 @@ const Shop: React.FC<TabBarProps<TabBarParamsList, 'Shop'>> = () => {
         value={middleName}
         onChangeText={setMiddleName}
         style={styles.input}
-      />
+        />
       <TextInput
         label="Last Name"
         value={lastName}
         onChangeText={setLastName}
         style={styles.input}
-      />
+        />
       <TextInput
         label="Phone Number"
         value={phoneNumber}
         onChangeText={setPhoneNumber}
         keyboardType="phone-pad"
         style={styles.input}
-      />
+        />
       <TextInput
         label="Email"
         value={email}
         onChangeText={setEmail}
         keyboardType="email-address"
         style={styles.input}
-      />
+        />
       <Button mode="contained" buttonColor='#B80028' onPress={handleSave}>
         Save Profile
       </Button>
     </View>
     </ScrollView>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  mainContainer:{
+    flex:1,
+    paddingTop: StatusBar.currentHeight,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
+    width:'100%',
+    height:500,
     padding: 20,
-    marginTop:90
+    // overflow:"scroll",
+    // borderWidth:2,
+    // borderColor:'black',
+    // zIndex:3
+    // marginTop:90
   },
   avatar: {
     alignSelf: 'center',
@@ -105,6 +117,17 @@ const styles = StyleSheet.create({
   input: {
     marginBottom: 10,
   },
+  scrollView:{
+    // width:'90%',
+    height:800,
+    width:'100%',
+    alignItems:"flex-start",
+    // borderWidth:2,
+    // borderColor:'black',
+    alignSelf:'center',
+    overflow:"scroll",
+    marginHorizontal: 20,
+  }
 });
 
 export default Shop

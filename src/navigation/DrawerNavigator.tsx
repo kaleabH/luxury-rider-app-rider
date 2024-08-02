@@ -8,6 +8,7 @@ import TabBarNavigator from "./TabBarNavigator"
 import { DrawerParamsList, DrawerProps as Props} from "../../types";
 import {View, StyleSheet, Image, TouchableOpacity} from "react-native";
 import { DrawerContent } from "../components/DrawerContent";
+import CurrentLocation from '../screens/CurrentLocation';
 import { ReactNode, useState } from "react";
 import Search from "../components/Search"
 import EIcon from 'react-native-vector-icons/Entypo';
@@ -59,6 +60,11 @@ const DrawerNavigator: React.FC<DrawerProps> = (props)=> {
          drawerContent={(props:DrawerContentComponentProps):ReactNode=> 
             <DrawerContent {...props}/>
          }>
+            <Drawer.Screen
+             name="CurrentLocation"
+             component={CurrentLocation}
+              
+             />
             <Drawer.Screen
             name="TabBarNavigator"
             component={TabBarNavigator}

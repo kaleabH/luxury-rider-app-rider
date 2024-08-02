@@ -10,6 +10,7 @@ export type TabBarParamsList = {
     GroupChat: undefined
 }
 export type DrawerParamsList ={
+ CurrentLocation: undefined;
  TabBarNavigator: NavigatorScreenParams<TabBarParamsList>;
  DrawerContent: NavigatorScreenParams<TabBarParamsList>;
 };
