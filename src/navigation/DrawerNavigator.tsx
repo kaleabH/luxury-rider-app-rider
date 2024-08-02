@@ -63,8 +63,8 @@ const DrawerNavigator: React.FC<DrawerProps> = (props)=> {
          }>
             <Drawer.Screen
             name="TabBarNavigator"
-            // component={TabBarNavigator}
-            component={BottomNav}
+            component={TabBarNavigator}
+            // component={BottomNav}
 
             options={{
                 title:"Home"

@@ -8,6 +8,7 @@ import CarCard from '../../newComponents/CarCard';
 import carImage from '../../assets/cars/car4.jpg';
 import carImage1 from '../../assets/cars/car5.jpg';
 import carImage2 from '../../assets/cars/car6.jpg';
+import BottomNav from '../../newComponents/BottomNav';
 
 const ListingScreen = () => {
   const [selectedFilter, setSelectedFilter] = React.useState('All');
@@ -55,7 +56,7 @@ const ListingScreen = () => {
           <Search />
           
 
-{/* // Inside the ListingScreen component */}
+           {/* // Inside the ListingScreen component */}
                 <View style={styles.filterTabs}>
                 <Card style={[styles.filterCard, selectedFilter === 'All' && styles.selectedCard]}>
                     <TouchableOpacity onPress={() => setSelectedFilter('All')}>
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     elevation: 4,
     borderRadius: 8,
-    padding: 4,
+    padding: 2,
   },
   filterCard: {
     flex: 1,

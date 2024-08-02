@@ -26,7 +26,9 @@ const SearchComponent = () => {
             placeholder="Search"
             value={searchQuery}
             onChangeText={onChangeSearch}
-            style={styles.input}
+            style={styles.input }
+            // outlineColor="transparent"
+            // activeOutlineColor="transparent"
           />
           <TouchableOpacity onPress={openFilterModal}>
             <IconButton icon="filter-variant" size={24} />
@@ -65,7 +67,7 @@ const SearchComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    padding: 10,
   },
   card: {
     backgroundColor:'#FFFFFF',
@@ -79,12 +81,13 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 8,
+    // padding: 5,
   },
   input: {
     flex: 1,
+    backgroundColor:"#FFFFFF",
+    
     // marginHorizontal: 5,
-    backgroundColor:"#FFFFFF"
   },
   modalOverlay: {
     flex: 1,
@@ -106,6 +109,7 @@ const styles = StyleSheet.create({
   serviceButton: {
     marginVertical: 2,
     width: '100%',
+    // backgroundColor:"#B80028"
   },
   closeButton: {
     marginTop: 16,

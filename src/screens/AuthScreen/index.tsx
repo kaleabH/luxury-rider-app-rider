@@ -28,7 +28,7 @@ const AuthScreen: React.FC<AuthScreenProps> = () => {
 
   return (
     <View style={styles.container}>
-      <Card.Cover source={require('../../../assets/splash10.jpg')} style={styles.image} />
+      <Card.Cover source={require('../../../assets/logoc.png')} style={styles.image} />
       <View style={styles.formContainer}>
         <Text style={styles.heading}>Earn LRMiles on every trip</Text>
         <View style={styles.row}>
@@ -56,14 +56,14 @@ const AuthScreen: React.FC<AuthScreenProps> = () => {
           <TextInput
             mode="outlined"
             placeholder="Please enter a mobile number"
-            left={<TextInput.Icon name="phone" />}
+            // left={<TextInput.Icon name="phone" />
             style={styles.input}
             outlineColor="transparent"
             activeOutlineColor="transparent"
           />
         </View>
-        <CustomButton title="Continue" onPress={handlePress} />
       </View>
+        <CustomButton title="Continue" onPress={handlePress} />
     </View>
   );
 };
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   image: {
-    height: '70%',
+    height: '60%',
+    borderRadius:0,
   },
   formContainer: {
     flex: 1,
