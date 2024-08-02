@@ -14,7 +14,7 @@ const UserDetailsScreen: React.FC = () => {
   const theme = useTheme();
 
   const handlePress = () => {
-    navigation.navigate('HomeScreen');
+    navigation.navigate('Map');
   };
 
   return (

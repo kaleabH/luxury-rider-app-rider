@@ -29,7 +29,7 @@ const LoadingScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../../assets/splash10.jpg')}
+        source={require('../../../assets/logoc.png')}
         style={styles.image}
         resizeMode="cover"
       />
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   image: {
-    height: height * 0.8,
+    height: height * 0.7,
     width: '100%',
     marginBottom: 10,
 

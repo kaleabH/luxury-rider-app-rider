@@ -9,7 +9,7 @@ expo: {
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
     splash: {
-      image: "./assets/splash10.jpg",
+      image: "./assets/logoc.png",
       resizeMode: "cover",
       backgroundColor: "#ffffff"
     },

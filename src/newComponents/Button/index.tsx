@@ -28,8 +28,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({ title, onPress }) => {
           shadowOpacity: 0.25,
           shadowRadius: 3.84,
           elevation: 5,
-          paddingVertical: 10,
-          paddingHorizontal: 32,
+          paddingVertical: 5,
+          paddingHorizontal: 10,
         },
       ]}
       labelStyle={{

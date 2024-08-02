@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
@@ -33,10 +35,14 @@ import VerificationScreen from './screens/VerificationScreen';
 import HomeScreen from './screens/HomeScreen';
 import SearchComponent from './newComponents/Search';
 import ListingScreen from './screens/ListingScreen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import MapScreen from './screens/MapScreen';
+import RideHistoryCard from './newComponents/RideHistoryCard';
 const Stack = createStackNavigator();
 
 const Index: React.FC = () => {
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
     <SafeAreaProvider>
       <StatusBar backgroundColor="#B80028" />
       <StatusBar hidden={false} />
@@ -44,7 +50,15 @@ const Index: React.FC = () => {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
 
-        <ListingScreen />
+      {/* <RideHistoryCard 
+        startLocation="Bole, Addis Ababa, Ethiopia" 
+        destination="Skylight Hotel" 
+        price="birr20" 
+        date="2024-08-01" 
+                        /> */}
+        {/* <MapScreen /> */}
+        {/* <CurrentLocation /> */}
+        {/* <ListingScreen /> */}
         {/* <SearchComponent /> */}
       {/* <CarDescription /> */}
       {/* <CarCard
@@ -75,27 +89,32 @@ const Index: React.FC = () => {
       {/* <BottomNav /> */}
       
        
-        {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
-      {/* <Stack.Screen name="Loading" component={LoadingScreen} /> */}
-      {/* <Stack.Screen name="AuthScreen" component={AuthSreen} /> */}
-      {/* <Stack.Screen name="Verification" component={VerificationScreen} /> */}
-      {/* <Stack.Screen name="UserDetails" component={UserDetailsScreen} /> */}
-      {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
-      {/* <Stack.Screen name='DrawerNavigator'component={DrawerNavigator}/> */}
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
 
-      {/* <Stack.Screen name="CountrySelector" component={CountrySelectorScreen} /> */}
-       
-          {/* <Stack.Screen name="Welcome" component={Welcome} />
-          <Stack.Screen name="AddCard" component={AddCard} />
-          <Stack.Screen name="CurrentLocation" component={CurrentLocation} />
-          <Stack.Screen name="SelectDestination"component={SelectDestination}/>
-          <Stack.Screen name="Request" component={Request} />
-          <Stack.Screen name="Description" component={CardDescription} />
-          <Stack.Screen name="YourRide" component={YourRide} /> */}
-        {/* </Stack.Navigator> */}
+      {/* <Stack.Screen name="Loading" component={LoadingScreen} />
+      <Stack.Screen name="AuthScreen" component={AuthSreen} />
+      <Stack.Screen name="Verification" component={VerificationScreen} />
+      <Stack.Screen name="UserDetails" component={UserDetailsScreen} />
+      <Stack.Screen name='Map'component={MapScreen}/> */}
+
+
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      {/* <Stack.Screen name='DrawerNavigator'component={DrawerNavigator}/> */}
+      {/* <Stack.Screen name='Listing'component={ListingScreen}/> */}
+
+      {/* <Stack.Screen name="Request" component={Request} />
+      <Stack.Screen name="YourRide" component={YourRide} /> */}
+         {/* <CurrentLocation /> */}
+          {/* <Stack.Screen name="Welcome" component={Welcome} /> */}
+          {/* <Stack.Screen name="AddCard" component={AddCard} /> */}
+          {/* <Stack.Screen name="CurrentLocation" component={CurrentLocation} /> */}
+          {/* <Stack.Screen name="SelectDestination"component={SelectDestination}/> */}
+          {/* <Stack.Screen name="Description" component={CardDescription} /> */}
+        </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
     </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 };
 
