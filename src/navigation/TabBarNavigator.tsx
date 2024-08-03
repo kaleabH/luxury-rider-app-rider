@@ -1,7 +1,7 @@
 import { View, Text,StyleSheet } from 'react-native'
 import React from 'react'
 import { createMaterialBottomTabNavigator } from "react-native-paper/react-navigation";
-import Home from '../screens/HomeScreen';
+import Home from '../screens/Home';
 import News from '../screens/News';
 import Matches from '../screens/Matches';
 import Shop from '../screens/Shop';

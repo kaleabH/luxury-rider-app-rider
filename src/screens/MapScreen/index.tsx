@@ -50,7 +50,7 @@ const MapScreen: React.FC = () => {
                                     icon="apps"
                                     size={24}
                                     iconColor='#B80028'
-                                    onPress={() => navigation.navigate('Services')}
+                                    onPress={() => navigation.navigate('DrawerNavigator')}
                                     style={styles.servicesButton}
                                 />
                             </TouchableOpacity>
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#f0f0f0',
-        borderRadius: 10,
+        borderRadius: 25,
         padding: 10,
     },
     inputContainerVertical: {

@@ -16,7 +16,7 @@ const UserDetailsScreen: React.FC = () => {
   const handlePress = () => {
     navigation.navigate('Map');
   };
-
+  
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
