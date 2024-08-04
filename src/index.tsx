@@ -13,6 +13,9 @@ import SelectDestination from './screens/SelectDestination';
 import Request from './screens/Request';
 import YourRide from './screens/YourRide';
 import DrawerNavigator from './navigation/DrawerNavigator';
+import VerificationScreen from './screens/VerificationScreen';
+import UserDetailsScreen from './screens/UserDetailsScreen';
+import AuthScreen from './screens/AuthScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,9 +23,12 @@ const Index: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName='AuthScreen' screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="AuthScreen" component={AuthScreen} />
+      <Stack.Screen name="Verification" component={VerificationScreen} />
+      <Stack.Screen name="UserDetails" component={UserDetailsScreen} />
           <Stack.Screen name="Welcome" component={Welcome} />
-          <Stack.Screen name="Verification" component={Verification} />
+          {/* <Stack.Screen name="Verification" component={Verification} /> */}
           <Stack.Screen name="AddCard" component={AddCard} />
           <Stack.Screen
         name='DrawerNavigator'

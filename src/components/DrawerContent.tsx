@@ -106,7 +106,7 @@ export const DrawerContent: React.FC<DrawerContentComponentProps>=(props)=>{
                     <Drawer.Section title="Preferences">
                         <TouchableRipple onPress={() => {toggleTheme()}}>
                             <View style={styles.preference}>
-                                <Text>Dark Theme</Text>
+                                <Text>Corporate</Text>
                                 <View pointerEvents="none">
                                     <Switch value={paperTheme.dark}/>
                                 </View>
@@ -173,7 +173,8 @@ const styles = StyleSheet.create({
     preference: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingVertical: 12,
+      alignItems:'center',
+    //   paddingVertical: 12,
       paddingHorizontal: 16,
     },
 

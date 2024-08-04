@@ -12,6 +12,11 @@ import CurrentLocation from '../screens/CurrentLocation';
 import { ReactNode, useState } from "react";
 import Search from "../components/Search"
 import EIcon from 'react-native-vector-icons/Entypo';
+import MapScreen from "../screens/MapScreen";
+import ListingScreen from "../screens/ListingScreen";
+import CarDescription from "../screens/CarDescription";
+import Request from "../screens/Request";
+import YourRide from "../screens/YourRide";
 interface DrawerProps /*extends Props<DrawerParamsList, "DrawerContent">*/{
 }
 
@@ -36,15 +41,15 @@ const DrawerNavigator: React.FC<DrawerProps> = (props)=> {
                         <EIcon name="menu" size={25} color="#000000" />
                       </TouchableOpacity>
               
-                 <View style={styles.logoContainer}>
+                 {/* <View style={styles.logoContainer}>
                       <Image
                         source={require("../assets/logo.png")}
                         style={{ height: 55, width: 55}}
                         />
-                  </View>
+                  </View> */}
               </View>
                     
-                    <View
+                    {/* <View
                     style={styles.searchContainer}
                     >
                       <Search
@@ -53,16 +58,45 @@ const DrawerNavigator: React.FC<DrawerProps> = (props)=> {
                           setValue(text)
                         }}
                       />
-                    </View>
+                    </View> */}
                    
                 </View>)
         }}
          drawerContent={(props:DrawerContentComponentProps):ReactNode=> 
             <DrawerContent {...props}/>
          }>
-            <Drawer.Screen
+            {/* <Drawer.Screen
              name="CurrentLocation"
              component={CurrentLocation}
+              
+             /> */}
+            <Drawer.Screen
+             name="MapScreen"
+             component={MapScreen}
+              
+             />
+            <Drawer.Screen
+             name="ListingScreen"
+             component={ListingScreen}
+             options={{headerShown:false}}
+              
+             />
+            <Drawer.Screen
+            options={{headerShown:false}}
+             name="CarDescription"
+             component={CarDescription}
+              
+             />
+            <Drawer.Screen
+            options={{headerShown:false}}
+             name="Request"
+             component={Request}
+              
+             />
+            <Drawer.Screen
+            options={{headerShown:false}}
+             name="YourRide"
+             component={YourRide}
               
              />
             <Drawer.Screen

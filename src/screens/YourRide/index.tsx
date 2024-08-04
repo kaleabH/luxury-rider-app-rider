@@ -9,9 +9,11 @@ import avatar from '../../assets/avatar.png';
 import theme from '../../theme';
 
 import * as S from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 const YourRide: React.FC = () => {
   const [rating, setRating] = useState(4);
+  const navigation = useNavigation();
 
   return (
     <>
@@ -20,7 +22,7 @@ const YourRide: React.FC = () => {
         <S.InnerContainer>
           <S.InfoContainer>
             <S.Description>Your ride is</S.Description>
-            <S.Description value>$5.58</S.Description>
+            <S.Description value>Br 3,000</S.Description>
             <S.Description>March 21, 2020 at 10:30 a.m</S.Description>
           </S.InfoContainer>
           <S.DriverContainer>
@@ -48,7 +50,7 @@ const YourRide: React.FC = () => {
                 placeholder="Your message..."
               />
             </S.RatingContainer>
-            <Button>Done</Button>
+            <Button onPress={()=>{navigation.goBack()}} style={{backgroundColor:"#B80028"}}>Done</Button>
           </S.DriverContainer>
         </S.InnerContainer>
       </S.Container>

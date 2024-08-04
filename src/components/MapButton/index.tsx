@@ -22,6 +22,9 @@ const MapButton: React.FC<IMapButtonProps> = ({
       transparent={transparent}
       {...props}
       style={{
+        position:"absolute",
+        bottom:110,
+        right:15,
         elevation: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 5 },

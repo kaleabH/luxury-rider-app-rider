@@ -1,6 +1,7 @@
 import { View, Text,StyleSheet } from 'react-native'
 import React from 'react'
 import { createMaterialBottomTabNavigator } from "react-native-paper/react-navigation";
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Home from '../screens/Home';
 import News from '../screens/News';
 import Matches from '../screens/Matches';
@@ -9,11 +10,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import EIcon from 'react-native-vector-icons/Entypo';
 import FIcon from 'react-native-vector-icons/FontAwesome';
 import { TabBarParamsList } from '../../types';
+import BottomNav from '../components/BottomNav';
+import ServicesScreen from '../screens/ServicesScreen';
+import DrawerNavigator from './DrawerNavigator';
 
 interface TabsProps {
 }
 
-const TabBar = createMaterialBottomTabNavigator<TabBarParamsList>();
+// const TabBar = createMaterialBottomTabNavigator<TabBarParamsList>();
+const TabBar = createBottomTabNavigator<TabBarParamsList>();
 const TabBarNavigator: React.FC<TabsProps> = ({ }) => {
   return (
     <TabBar.Navigator
@@ -36,6 +41,7 @@ const TabBarNavigator: React.FC<TabsProps> = ({ }) => {
         
       }}
       barStyle={{
+        display:"none",
         height:20,
         width:"90%",
         zIndex:2,
@@ -49,6 +55,7 @@ const TabBarNavigator: React.FC<TabsProps> = ({ }) => {
         justifyContent:"center",
         top:"90%",
         left:"5%"
+
         
         // marginBottom:60,
         // alignSelf:'center',
@@ -57,16 +64,18 @@ const TabBarNavigator: React.FC<TabsProps> = ({ }) => {
       initialRouteName= {"Home"}
       
       screenOptions={{
-        tabBarColor:"white",
-
+        // tabBarColor:"white",
+        headerShown: false 
       }}      
+      
+      tabBar={() => <BottomNav />}
       shifting={true}
       activeColor={"#B80028"}
       inactiveColor={"grey"}
     >
       <TabBar.Screen
         name="Home"
-        component={Home}
+        component={ServicesScreen}
         options={
           {
           title:"Home",
@@ -112,6 +121,18 @@ const TabBarNavigator: React.FC<TabsProps> = ({ }) => {
           }
         }
       />
+      {/* <TabBar.Screen
+        name="DrawerNavigator"
+        component={DrawerNavigator}
+        options={
+          {
+          title:"profile",
+          tabBarIcon: ({color})=>(
+            <FIcon name="user" color={color} size={26} />
+          )
+          }
+        }
+      /> */}
     
     
     </TabBar.Navigator>
