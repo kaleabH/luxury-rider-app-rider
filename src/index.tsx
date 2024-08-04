@@ -37,8 +37,12 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import MapScreen from './screens/MapScreen';
 import RideHistoryCard from './newComponents/RideHistoryCard';
 import ServicesScreen from './screens/ServicesScreen';
+import CustomButton from './newComponents/Button';
 const Stack = createStackNavigator();
 
+const handleCallDriver =() => {
+  console.log('buttonclicked')
+}
 const Index: React.FC = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -48,22 +52,28 @@ const Index: React.FC = () => {
 
     <ThemeProvider theme={theme}>
       <NavigationContainer> 
+
+      {/* <Request /> */}
+    
+       
         <Stack.Navigator screenOptions={{ headerShown: false }}>
 
             {/* <Stack.Screen name="Loading" component={LoadingScreen} />
             <Stack.Screen name="AuthScreen" component={AuthSreen} />
             <Stack.Screen name="Verification" component={VerificationScreen} />
-            <Stack.Screen name="UserDetails" component={UserDetailsScreen} /> */}
+          <Stack.Screen name="UserDetails" component={UserDetailsScreen} /> */}
             {/* <Stack.Screen name='Map'component={MapScreen}/> */}
 
             {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
-
-          <Stack.Screen name='Services'component={ServicesScreen}/>
+  
+          {/* <Stack.Screen name='Services'component={ServicesScreen}/> */}
           {/* <Stack.Screen name='DrawerNavigator'component={DrawerNavigator}/> */}
          {/* <Stack.Screen name='Listing'component={ListingScreen}/> */}
 
-          {/* <Stack.Screen name="Request" component={Request} /> */}
-          {/* <Stack.Screen name="YourRide" component={YourRide} /> */}
+          
+
+          <Stack.Screen name="Request" component={Request} />
+          <Stack.Screen name="YourRide" component={YourRide} />
           {/* <Stack.Screen name="AddCard" component={AddCard} /> */}
           {/* <Stack.Screen name="CurrentLocation" component={CurrentLocation} /> */}
           {/* <Stack.Screen name="SelectDestination"component={SelectDestination}/> */}

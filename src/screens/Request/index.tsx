@@ -1,46 +1,72 @@
-import React, { useState } from 'react';
-import { Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Modal, StyleSheet, BackHandler } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { Polyline, Marker, Callout } from 'react-native-maps';
-
+import { Checkbox, IconButton, TextInput } from 'react-native-paper';
 import homeMarker from '../../assets/home_marker.png';
 import destMarker from '../../assets/dest_marker.png';
-import visa from '../../assets/visa.png';
 import customMapStyle from '../../mapstyle.json';
-
 import Header from '../../components/Header';
 import CarButton from '../../components/CarButton';
 import Button from '../../components/Button';
 import theme from '../../theme';
-
 import * as S from './styles';
-import { TextInput } from 'react-native-paper';
-import CardComponent from '../../components/CardComponent';
-import { FlatList } from 'react-native';
+import CallDriverCard from '../../newComponents/CallDriverCard';
+import DriverCard from '../../newComponents/DriverCard';
+import driverImage from '../../assets/avatar.png';
+import BackButton from '../../newComponents/BackButton';
+import CustomButton from '../../newComponents/Button'; // Ensure this path is correct
 
 const Request: React.FC = () => {
   const [selected, setSelected] = useState('economy');
-
-  const [text, setText] = React.useState(" ");
+  const [text, setText] = useState(' ');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [reasons, setReasons] = useState<string[]>([]);
 
   const navigation = useNavigation();
-  
-  const carData = [
-    { id: '1', name: 'VIP', image: require('../../assets/cars/car5.jpg') },
-    { id: '2', name: 'VVIP', image: require('../../assets/cars/car6.jpg') },
-    { id: '3', name: 'Corporate', image: require('../../assets/cars/car4.jpg') },
-    // Add more car data as needed
-  ];
 
-  const renderItem = ({ item }: any) => (
-    <CardComponent name={item.name} image={item.image} />
-  );
-  
+  const handleCallDriver = () => {
+    navigation.navigate('YourRide');
+    console.log('Call Driver button pressed');
+  };
+
+  const handleCancelRide = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleConfirmCancel = () => {
+    console.log('Cancel Ride confirmed with reasons:', reasons);
+    setIsModalVisible(false);
+    // navigation.navigate('Home'); // Assuming you navigate back to Home or some other screen after cancel
+  };
+
+  const toggleReason = (reason: string) => {
+    setReasons((prevReasons) =>
+      prevReasons.includes(reason)
+        ? prevReasons.filter((r) => r !== reason)
+        : [...prevReasons, reason]
+    );
+  };
+
+  useEffect(() => {
+    const backAction = () => {
+      navigation.goBack();
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, [navigation]);
+
   return (
     <S.Container>
       <S.HeaderContainer>
-        <Header transparentButton={false} />
+        <BackButton onPress={() => setIsModalVisible(false)} />
       </S.HeaderContainer>
       <S.Map
         region={{
@@ -75,11 +101,11 @@ const Request: React.FC = () => {
           coordinate={{ latitude: -19.916483, longitude: -43.935129 }}
         >
           <Callout>
-          <TextInput
-      value={text}
-      onChangeText={text => setText(text)}
-      placeholder='Bole, Atlas'
-    />
+            <TextInput
+              value={text}
+              onChangeText={(text) => setText(text)}
+              placeholder="Bole, Atlas"
+            />
           </Callout>
         </Marker>
         <Marker
@@ -103,43 +129,125 @@ const Request: React.FC = () => {
             height: 300,
           }}
         />
-        {/* <S.Options>
-          <CarButton
-            text="VIP"
-            onPress={() => setSelected('economy')}
-            active={selected === 'economy'}
-          />
-          <CarButton
-            text="VVIP"
-            onPress={() => setSelected('luxury')}
-            active={selected === 'luxury'}
-          />
-          <CarButton
-            text="Coorporate"
-            onPress={() => setSelected('family')}
-            active={selected === 'family'}
-          />
-        </S.Options> */}
-        <S.FlatlistContainer>
-          <FlatList
-            data={carData}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            horizontal
-            contentContainerStyle={{ alignItems: 'center' }}
-          />
-       </S.FlatlistContainer>
-       
-        <S.CreditCardInfo>
-          <S.CreditCardImage source={visa} />
-          <S.CreditCardText>•••• 0990</S.CreditCardText>
-        </S.CreditCardInfo>
-        <Button onPress={() => navigation.navigate('YourRide')}>
-          Send Request
-        </Button>
       </S.Bottom>
+
+      <S.CreditCardInfo>
+        <DriverCard
+          name="Abel Kassa"
+          vehicleRegistration="DL3s - 2655"
+          imagePath={driverImage}
+        />
+        <CallDriverCard
+          estimatedTime="10-15"
+          date="04 Apr 2022"
+          startLocation="Piassa"
+          endLocation="Bole road 10"
+        />
+      </S.CreditCardInfo>
+
+      <View style={styles.buttonContainer}>
+        <CustomButton
+          title="Call Driver"
+          icon="phone-in-talk-outline"
+          onPress={handleCallDriver}
+          style={styles.callDriver}
+        />
+        <CustomButton
+          title="Cancel Ride"
+          onPress={handleCancelRide}
+          style={[styles.cancelRide, { backgroundColor: 'white' }]}
+          labelStyle={{ color: 'black' }}
+        />
+      </View>
+
+      <Modal visible={isModalVisible} transparent={true} animationType="slide">
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <BackButton />
+            <Text style={styles.reasonText}>Reason to cancel</Text>
+            <CallDriverCard
+              estimatedTime="10-15"
+              date="04 Apr 2022"
+              startLocation="Piassa"
+              endLocation="Bole road 10"
+            />
+            <View style={styles.checkboxContainer}>
+              {['I have changed my mind', 'Driver is late', 'Price is high', 'Other'].map(
+                (reason, index) => (
+                  <View key={index} style={styles.checkboxItem}>
+                    <Checkbox
+                      status={reasons.includes(reason) ? 'checked' : 'unchecked'}
+                      onPress={() => toggleReason(reason)}
+                    />
+                    <Text>{reason}</Text>
+                  </View>
+                )
+              )}
+            </View>
+            <CustomButton
+              title="Cancel Ride"
+              onPress={handleConfirmCancel}
+              style={styles.confirmButton}
+              fontSize={14}
+            />
+          </View>
+        </View>
+      </Modal>
     </S.Container>
   );
 };
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    width: '80%',
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  reasonText: {
+    fontSize: 16,
+    marginVertical: 10,
+  },
+  checkboxContainer: {
+    marginBottom: 20,
+  },
+  checkboxItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  confirmButton: {
+    fontSize: 14,
+    borderRadius:50,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 20,
+  },
+  callDriver: {
+    margin: 0,
+    fontSize: 12,
+    borderRadius:50,
+  },
+  cancelRide: {
+    margin: 0,
+    fontSize: 12,
+    borderRadius:50,
+
+    
+  },
+});
 
 export default Request;
