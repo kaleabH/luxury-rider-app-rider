@@ -24,7 +24,7 @@ expo: {
       package: "com.kaleabhaliu.luxuryriderapprider",
       config: {
         googleMaps: {
-          apiKey: process.env.GOOGLE_MAP_API_KEY
+          apiKey: "AIzaSyBVdYR5KOl5GHK9p-DJ1DLx5bJgc8D3rLg"
         }
       }
     },
@@ -38,4 +38,4 @@ expo: {
     }
   }
 }
-console.log("the api key",process.env.GOOGLE_MAP_API_KEY)
+// console.log("the api key",process.env.GOOGLE_MAP_API_KEY)

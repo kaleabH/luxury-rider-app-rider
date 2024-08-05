@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Modal, StyleSheet, BackHandler, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import { Polyline, Marker, Callout } from 'react-native-maps';
+import { Polyline, Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Checkbox, IconButton, TextInput } from 'react-native-paper';
 import homeMarker from '../../assets/home_marker.png';
 import destMarker from '../../assets/dest_marker.png';
@@ -70,6 +70,7 @@ useEffect(() => {
         <BackButton onPress={() => setIsModalVisible(false)} />
       </S.HeaderContainer>
       <S.Map
+        provider={PROVIDER_GOOGLE}
         region={{
           latitude: -19.920183,
           longitude: -43.936825,

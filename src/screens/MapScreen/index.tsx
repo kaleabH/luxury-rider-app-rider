@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 
 import { View, StyleSheet, KeyboardAvoidingView, Image, TouchableOpacity, ScrollView } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Card, TextInput, IconButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import BurgerMenu from '../../newComponents/BurgerMenu'; // Adjust the path as necessary
@@ -70,6 +70,7 @@ const MapScreen: React.FC = () => {
                 mapRef = map;
               }}
                 style={styles.map}
+                provider={PROVIDER_GOOGLE}
                 initialRegion={{
                     latitude: 8.9831,
                     longitude: 38.8101,
@@ -77,7 +78,6 @@ const MapScreen: React.FC = () => {
                     longitudeDelta: 0.0421,
                 }}
             >
-                {/* <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }} /> */}
                 <Marker coordinate={latLng} />
             </MapView>
             {/* <BurgerMenu /> */}
