@@ -72,8 +72,9 @@ const Index: React.FC = () => {
 
           
 
-          <Stack.Screen name="Request" component={Request} />
-          <Stack.Screen name="YourRide" component={YourRide} />
+          <Stack.Screen name="Welcome" component={Welcome} />
+          {/* <Stack.Screen name="Request" component={Request} /> */}
+          {/* <Stack.Screen name="YourRide" component={YourRide} /> */}
           {/* <Stack.Screen name="AddCard" component={AddCard} /> */}
           {/* <Stack.Screen name="CurrentLocation" component={CurrentLocation} /> */}
           {/* <Stack.Screen name="SelectDestination"component={SelectDestination}/> */}
