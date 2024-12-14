@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageURISource } from 'react-native';
+import { ImageURISource, View } from 'react-native';
 import { RectButtonProperties } from 'react-native-gesture-handler';
 
 import * as S from './styles';
@@ -17,7 +17,8 @@ const MapButton: React.FC<IMapButtonProps> = ({
   ...props
 }) => {
   return (
-    <S.Container
+    // <S.Container
+    <View
       noMargin={noMargin}
       transparent={transparent}
       {...props}
@@ -30,7 +31,8 @@ const MapButton: React.FC<IMapButtonProps> = ({
       }}
     >
       <S.Icon source={icon} />
-    </S.Container>
+      </View>
+    // </S.Container>
   );
 };
 

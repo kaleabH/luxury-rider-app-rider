@@ -12,6 +12,8 @@ const Matches:React.FC<TabBarProps<TabBarParamsList,'Matches'>> = () => {
   return (
     <View style={styles.container}>
       {/* <Match/> */}
+
+      <Text>this is matches</Text>
     </View>
   )
 }

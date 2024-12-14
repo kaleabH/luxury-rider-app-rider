@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import MapView from 'react-native-maps';
-
 import { ThemeProps } from '../../theme';
 
 export const Container = styled.View`
@@ -29,11 +28,12 @@ export const Options = styled.View`
 `;
 
 export const CreditCardInfo = styled.View`
-  flex-direction: row;
+  flex-direction: column; /* Adjusted to column to fit the CallDriverCard */
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
 `;
 
 export const CreditCardImage = styled.Image`
