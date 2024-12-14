@@ -18,7 +18,7 @@ interface ILatLng {
   latitude: number;
   longitude: number;
 }
-
+// const apiKey = process.env.GOOGLE_MAP_API_KEY
 const Map: React.FC = () => {
   const [latLng, setLatLng] = useState<ILatLng>({
     latitude: -19.916483,
